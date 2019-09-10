@@ -1,0 +1,92 @@
+{
+  "version": 2,
+  "description": "date_histogram aggregation",
+  "name": "date_histogram_agg",
+
+  "indices": [
+    {
+      "name": "timestamps-gaussian-sameday",
+      "body": "index.json",
+      "types": ["_doc"]
+    },
+    {
+      "name": "timestamps-uniform-sameday",
+      "body": "index.json",
+      "types": ["_doc"]
+    },
+    {
+      "name": "timestamps-uniform-1s",
+      "body": "index.json",
+      "types": ["_doc"]
+    },
+    {
+      "name": "timestamps-uniform-10s",
+      "body": "index.json",
+      "types": ["_doc"]
+    }
+  ],
+
+  "corpora": [
+    {
+      "name": "timestamps-gaussian-sameday",
+      "target-type": "_doc",
+      "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
+      "documents": [
+        {
+          "source-file": "timestamps-gaussian-sameday.json.bz2",
+          "document-count": 70176011,
+          "compressed-bytes": 137528251,
+          "uncompressed-bytes": 3297924697,
+          "target-index": "timestamps-gaussian-sameday"
+        }
+      ]
+    },
+    {
+      "name": "timestamps-uniform-sameday",
+      "target-type": "_doc",
+      "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
+      "documents": [
+        {
+          "source-file": "timestamps-uniform-sameday.json.bz2",
+          "document-count": 70176011,
+          "compressed-bytes": 4891821,
+          "uncompressed-bytes": 3143885211,
+          "target-index": "timestamps-uniform-sameday"
+        }
+      ]
+    },
+    {
+      "name": "timestamps-uniform-1s",
+      "target-type": "_doc",
+      "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
+      "documents": [
+        {
+          "source-file": "timestamps-uniform-1s.json.bz2",
+          "document-count": 70176011,
+          "compressed-bytes": 57907412,
+          "uncompressed-bytes": 3017568473,
+          "target-index": "timestamps-uniform-1s"
+        }
+      ]
+    },
+    {
+      "name": "timestamps-uniform-10s",
+      "target-type": "_doc",
+      "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
+      "documents": [
+        {
+          "source-file": "timestamps-uniform-10s.json.bz2",
+          "document-count": 70176011,
+          "compressed-bytes": 62351219,
+          "uncompressed-bytes": 3017568473,
+          "target-index": "timestamps-uniform-10s"
+        }
+      ]
+    }
+  ],
+
+  "challenges": [
+    {{ rally.collect(parts="challenges/*.json") }}
+  ]
+
+}

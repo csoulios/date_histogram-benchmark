@@ -1,0 +1,68 @@
+{
+    "name": "timestamps-gaussian-sameday",
+    "default": true,
+    "schedule": [
+        {
+            "operation": {
+                "name": "delete",
+                "operation-type": "delete-index"
+            }
+        },
+        {
+            "operation": {
+                "name": "create",
+                "operation-type": "create-index"
+            }
+        },
+        {
+            "operation": {
+                "name": "wait-for-green",
+                "operation-type": "cluster-health",
+                "request-params": {
+                    "wait_for_status": "green"
+                }
+            }
+        },
+        {
+            "operation": {
+                "name": "index-append",
+                "operation-type": "bulk",
+                "bulk-size": {{bulk_size | default(5000) }},
+                "ingest-percentage": {{ingest_percentage | default(100)}},
+                "corpora": "timestamps-gaussian-sameday"
+            }
+        },
+        {
+            "operation": {
+                "name": "force-merge",
+                "operation-type": "force-merge",
+                "clients": 1
+            }
+        },
+        {
+            "operation": {
+                "name": "query-agg-date_histogram",
+                "operation-type": "search",
+                "index": "timestamps-gaussian-sameday",
+                "body": {
+                    "aggs": {
+                        "2": {
+                            "date_histogram": {
+                                "field": "@timestamp",
+                                "interval": "1d",
+                                "min_doc_count": 1
+                            }
+                        }
+                    },
+                    "query": {
+                        "match_all": {}
+                    }
+                }
+            },
+            "clients": 1,
+            "warmup-iterations": 10,
+            "iterations": 30,
+            "target-interval": 5
+        }
+    ]
+}
