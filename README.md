@@ -13,14 +13,22 @@ Test datasets have been uploaded [here](https://github.com/csoulios/date_histogr
 
 To run the benchmarks
 
-1. Install the latest version of Rally, as described in the official rally [documentation](https://esrally.readthedocs.io/en/stable/install.html).
+1. Install the latest version of Rally, as described in the official Rally [documentation](https://esrally.readthedocs.io/en/stable/install.html).
 
-2. Checkout code from this repo to a local directory.
+2. [Configure Rally](https://esrally.readthedocs.io/en/stable/install.html#next-steps) using `esrally configure`.
 
-3. Run rally track with any of the supported challenges.
+3. Edit `~/.rally/rally.ini` and add the `data_histogram-benchmark` track in the `[tracks]` section as shown below (more details in the [Rally docs](https://esrally.readthedocs.io/en/stable/recipes.html?highlight=track-repository#changing-the-default-track-repository)):
+
+    ```
+    [tracks]
+    default.url = https://github.com/elastic/rally-tracks
+    date_histogram-benchmark.url = https://github.com/csoulios/date_histogram-benchmark
+    ```
+
+4. Run rally track with any of the supported challenges.
 
 ```
-esrally --track-repository=/path/to/date_histogram-benchmark --distribution-version=[elasticsearch_version] --track date_histogram --challenge=[challenge_name]
+esrally --on-error=abort --track-repository=date_histogram-benchmark --distribution-version=[elasticsearch_version] --track date_histogram --challenge=[challenge_name]
 ```
 
 A different challenge has been created for loading each of the datasets with different distributions of documents in time:
