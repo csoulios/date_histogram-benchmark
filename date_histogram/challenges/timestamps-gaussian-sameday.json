@@ -31,7 +31,8 @@
         "ingest-percentage": {{ ingest_percentage | default(100) }},
         "corpora": "timestamps-gaussian-sameday"
       },
-      "clients": 8
+      "clients": 8,
+      "warmup-time-period": 100
     },
     {
       "name": "refresh-after-index",
@@ -46,25 +47,7 @@
       }
     },
     {
-      "operation": {
-        "name": "query-agg-date_histogram",
-        "operation-type": "search",
-        "index": "timestamps-gaussian-sameday",
-        "body": {
-          "aggs": {
-            "2": {
-              "date_histogram": {
-                "field": "@timestamp",
-                "interval": "1d",
-                "min_doc_count": 1
-              }
-            }
-          },
-          "query": {
-            "match_all": {}
-          }
-        }
-      },
+      "operation": "query-agg-date_histogram",
       "clients": 1,
       "warmup-iterations": 10,
       "iterations": 30,
