@@ -1,0 +1,19 @@
+  {
+    "name": "query-agg-date_histogram",
+    "operation-type": "search",
+    "index": "timestamps-gaussian-sameday",
+    "body": {
+      "aggs": {
+        "2": {
+          "date_histogram": {
+            "field": "@timestamp",
+            "interval": "1d",
+            "min_doc_count": 1
+          }
+        }
+      },
+      "query": {
+        "match_all": {}
+      }
+    }
+  }
