@@ -6,30 +6,25 @@
   "indices": [
     {
       "name": "timestamps-gaussian-sameday",
-      "body": "index.json",
-      "types": ["_doc"]
+      "body": "index.json"
     },
     {
       "name": "timestamps-uniform-sameday",
-      "body": "index.json",
-      "types": ["_doc"]
+      "body": "index.json"
     },
     {
       "name": "timestamps-uniform-1s",
-      "body": "index.json",
-      "types": ["_doc"]
+      "body": "index.json"
     },
     {
       "name": "timestamps-uniform-10s",
-      "body": "index.json",
-      "types": ["_doc"]
+      "body": "index.json"
     }
   ],
 
   "corpora": [
     {
       "name": "timestamps-gaussian-sameday",
-      "target-type": "_doc",
       "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
       "documents": [
         {
@@ -43,7 +38,6 @@
     },
     {
       "name": "timestamps-uniform-sameday",
-      "target-type": "_doc",
       "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
       "documents": [
         {
@@ -57,7 +51,6 @@
     },
     {
       "name": "timestamps-uniform-1s",
-      "target-type": "_doc",
       "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
       "documents": [
         {
@@ -71,7 +64,6 @@
     },
     {
       "name": "timestamps-uniform-10s",
-      "target-type": "_doc",
       "base-url": "https://github.com/csoulios/date_histogram-benchmark/releases/download/1.0",
       "documents": [
         {
