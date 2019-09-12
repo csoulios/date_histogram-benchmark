@@ -7,7 +7,7 @@
         "2": {
           "date_histogram": {
             "field": "@timestamp",
-            "interval": "1d",
+            "interval": "24h",
             "min_doc_count": 1
           }
         }
