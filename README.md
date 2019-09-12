@@ -5,9 +5,9 @@
 This project is an ES Rally benchmark that measures performance of the `date_histogram` aggregation
 for various workloads.
 
-It was created to reproduce a performance issue reported Elastic [forums](https://discuss.elastic.co/t/slow-date-histogram-after-upgrading-to-7-3-0-on-dense-indexes/196475) and [GitHub](https://github.com/elastic/elasticsearch/issues/45702).
+It was created to reproduce a performance issue reported at Elastic [forums](https://discuss.elastic.co/t/slow-date-histogram-after-upgrading-to-7-3-0-on-dense-indexes/196475) and [GitHub issues](https://github.com/elastic/elasticsearch/issues/45702).
 
-Test datasets have been uploaded [here](https://github.com/csoulios/date_histogram-benchmark/releases/tag/1.0).
+Test datasets with different workloads have been uploaded [here](https://github.com/csoulios/date_histogram-benchmark/releases/tag/1.0).
 
 ## Run benchmarks
 
